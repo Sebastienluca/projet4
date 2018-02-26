@@ -8,6 +8,7 @@ class Comment extends Entity
   protected $news,
             $auteur,
             $contenu,
+            $signaler,
             $date;
 
   const AUTEUR_INVALIDE = 1;
@@ -21,6 +22,11 @@ class Comment extends Entity
   public function setNews($news)
   {
     $this->news = (int) $news;
+  }
+  
+  public function setSignaler($signaler)
+  {
+      $this->signaler = (int) $signaler;
   }
 
   public function setAuteur($auteur)
@@ -51,6 +57,11 @@ class Comment extends Entity
   public function news()
   {
     return $this->news;
+  }
+
+  public function signaler()
+  {
+    return $this->signaler;
   }
 
   public function auteur()
