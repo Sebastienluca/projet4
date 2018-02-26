@@ -81,4 +81,34 @@ class CommentsManagerPDO extends CommentsManager
 			
 		$q->execute();
 	}
+
+	public function countComments()
+	{
+		return $this->dao->query('SELECT COUNT(*) FROM comments WHERE id')->fetchColumn() ;
+	}
+
+	public function getListAutre($debut = -1, $limite = -1)
+	{
+		$sql = 'SELECT id, auteur, contenu, signaler, statut, date FROM comments WHERE id ORDER BY id DESC';
+		
+		if ($debut != -1 || $limite != -1)
+		{
+			$sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
+		}
+		
+		$requete = $this->dao->query($sql);
+		$requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+		
+		$listeCommentsAutre = $requete->fetchAll();
+		
+		foreach ($listeCommentsAutre as $comments)
+		{
+			$comments->setDate(new \DateTime($comments->date()));
+			
+		}
+		
+		$requete->closeCursor();
+		
+		return $listeCommentsAutre;
+	}
 }

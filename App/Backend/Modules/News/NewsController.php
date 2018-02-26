@@ -32,6 +32,17 @@ class NewsController extends BackController
     $this->app->httpResponse()->redirect('.');
   }
 
+  public function executegcommets(HTTPRequest $request)
+  {
+    $this->page->addVar('title', 'Gestion des commentaires');
+
+    $manager = $this->managers->getManagerOf('Comments');
+
+    $this->page->addVar('listeCommentsAutre', $manager->getListAutre());
+    $this->page->addVar('nombreComments', $manager->countComments());
+ 
+  }
+
   public function executeIndex(HTTPRequest $request)
   {
     $this->page->addVar('title', 'Gestion des news');
