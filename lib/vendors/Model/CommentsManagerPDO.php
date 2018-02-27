@@ -82,9 +82,48 @@ class CommentsManagerPDO extends CommentsManager
 		$q->execute();
 	}
 
+	public function clearSignaler(Comment $comment)
+	{
+			$q = $this->dao->prepare('UPDATE comments SET signaler = :signaler WHERE id = :id');
+			$q->bindValue(':signaler', 0);
+			$q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
+			
+			$q->execute();
+	}
+
 	public function countComments()
 	{
 		return $this->dao->query('SELECT COUNT(*) FROM comments WHERE id')->fetchColumn() ;
+	}
+
+	public function countSignaler()
+	{
+		return $this->dao->query('SELECT COUNT(*) FROM comments WHERE signaler')->fetchColumn() ;
+	}
+
+	public function getList($debut = -1, $limite = -1)
+	{
+		$sql = 'SELECT id, auteur, contenu, signaler, statut, date FROM comments WHERE signaler ORDER BY id DESC';
+		
+		if ($debut != -1 || $limite != -1)
+		{
+			$sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
+		}
+		
+		$requete = $this->dao->query($sql);
+		$requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+		
+		$listeCommentsSignaler = $requete->fetchAll();
+		
+		foreach ($listeCommentsSignaler as $comments)
+		{
+			$comments->setDate(new \DateTime($comments->date()));
+			
+		}
+		
+		$requete->closeCursor();
+		
+		return $listeCommentsSignaler;
 	}
 
 	public function getListAutre($debut = -1, $limite = -1)

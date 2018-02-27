@@ -40,6 +40,9 @@ class NewsController extends BackController
 
     $this->page->addVar('listeCommentsAutre', $manager->getListAutre());
     $this->page->addVar('nombreComments', $manager->countComments());
+
+      $this->page->addVar('listeCommentsSignaler', $manager->getList());
+    $this->page->addVar('nombreCommentsSignaler', $manager->countSignaler());
  
   }
 
@@ -51,6 +54,17 @@ class NewsController extends BackController
 
     $this->page->addVar('listeNews', $manager->getList());
     $this->page->addVar('nombreNews', $manager->count());
+
+  }
+
+  public function executeClearSignaler(HTTPRequest $request)
+  {
+    $manager = $this->managers->getManagerOf('Comments');
+    $comment = $manager->get($request->getData('id'));
+    $manager->clearSignaler($comment);
+
+    $this->app->user()->setFlash('Le commentaire a bien été ré-affecté !');
+    $this->app->httpResponse()->redirect('/admin/comment-gestion.html'); 
   }
 
   public function executeInsert(HTTPRequest $request)
