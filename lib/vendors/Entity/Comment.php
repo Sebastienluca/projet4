@@ -8,6 +8,7 @@ class Comment extends Entity
   protected $news,
             $auteur,
             $contenu,
+            $statut,
             $signaler,
             $date;
 
@@ -22,6 +23,11 @@ class Comment extends Entity
   public function setNews($news)
   {
     $this->news = (int) $news;
+  }
+
+  public function setStatut($statut)
+  {
+      $this->statut = (int) $statut;
   }
   
   public function setSignaler($signaler)
@@ -57,6 +63,11 @@ class Comment extends Entity
   public function news()
   {
     return $this->news;
+  }
+
+  public function statut()
+  {
+    return $this->statut;
   }
 
   public function signaler()

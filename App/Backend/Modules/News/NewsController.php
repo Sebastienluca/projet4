@@ -57,13 +57,33 @@ class NewsController extends BackController
 
   }
 
+   public function executeStatutActiver(HTTPRequest $request)
+  {
+    $manager = $this->managers->getManagerOf('Comments');
+    $comment = $manager->get($request->getData('id'));
+    $manager->statutActiver($comment);
+
+    $this->app->user()->setFlash('Le commentaire a bien été Activé !');
+    $this->app->httpResponse()->redirect('/admin/comment-gestion.html'); 
+  }
+
+  public function executeStatutDesactiver(HTTPRequest $request)
+  {
+    $manager = $this->managers->getManagerOf('Comments');
+    $comment = $manager->get($request->getData('id'));
+    $manager->statutDesactiver($comment);
+
+    $this->app->user()->setFlash('Le commentaire a bien été désactivé !');
+    $this->app->httpResponse()->redirect('/admin/comment-gestion.html'); 
+  }
+
   public function executeClearSignaler(HTTPRequest $request)
   {
     $manager = $this->managers->getManagerOf('Comments');
     $comment = $manager->get($request->getData('id'));
     $manager->clearSignaler($comment);
 
-    $this->app->user()->setFlash('Le commentaire a bien été ré-affecté !');
+    $this->app->user()->setFlash('Le commentaire a bien été réaffecté !');
     $this->app->httpResponse()->redirect('/admin/comment-gestion.html'); 
   }
 
@@ -152,7 +172,7 @@ class NewsController extends BackController
 
     if ($formHandler->process())
     {
-      $this->app->user()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée !');
+      $this->app->user()->setFlash($news->isNew() ? 'L\'episode a bien été ajoutée !' : 'L\'episode a bien été modifiée !');
       
       $this->app->httpResponse()->redirect('/admin/');
     }

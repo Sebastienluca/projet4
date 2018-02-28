@@ -4,7 +4,7 @@
 		<h2>Commentaires</h2>
 		<p style="text-align: center">Il y a actuellement <?= $nombreComments ?> commentaire(s). En voici la liste :</p>
 		<table class="table table-striped">
-			<tr><th>Auteur</th><th>Commentaire</th><th>Date</th><th>Action</th></tr>
+			<tr><th>Auteur</th><th>Commentaire</th><th>Date</th><th>Action</th><th>Statut</th></tr>
 		<?php
 		foreach ($listeCommentsAutre as $comment)
 		{
@@ -17,14 +17,22 @@
 				<a href="comment-delete-'.$comment['id'].'.html"><img src="/images/delete.png" alt="Supprimer" /></a> | 
 				<a href="comment-clearsignaler-'.$comment['id'].'.html">clearsignaler</a>
 			</td>
-			</tr>', "\n";
+			<td>';
+
+				if ($comment['statut'] == 0)
+				{
+				echo '<a href="comment-statutdesactiver-'.$comment['id'].'.html">Désactiver</a>';
+			}else {
+					echo '<a href="comment-statutactiver-'.$comment['id'].'.html">Activer</a>';
+				}
+				echo '</td> </tr>', "\n";
 		}
 		?>
 		</table>
 		<h2>Commentaires signalés</h2>
 		<p style="text-align: center">Il y a actuellement <?= $nombreCommentsSignaler ?> commentaire(s) signalé(s). En voici la liste :</p>
 		<table class="table table-striped">
-			<tr><th>Auteur</th><th>Commentaire</th><th>Signaler</th><th>Date</th><th>Action</th><th>Clear Signal</th></tr>
+			<tr><th>Auteur</th><th>Commentaire</th><th>Signaler</th><th>Date</th><th>Action</th><th>Clear Signal</th><th>Statut</th></tr>
 		<?php
 		foreach ($listeCommentsSignaler as $comment)
 		{
@@ -40,7 +48,15 @@
 				<td class="center">
 				<a href="comment-clearsignaler-'.$comment['id'].'.html">clearsignaler</a>
 				</td>
-			</tr>', "\n";
+			<td>';
+
+				if ($comment['statut'] == 0)
+				{
+				echo '<a href="comment-statutdesactiver-'.$comment['id'].'.html">Désactiver</a>';
+			}else {
+					echo '<a href="comment-statutactiver-'.$comment['id'].'.html">Activer</a>';
+				}
+				echo '</td> </tr>', "\n";
 		}
 		?>
 		</table>
