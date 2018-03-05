@@ -1,5 +1,5 @@
 <h2>Ajouter une news</h2>
-<form action="" method="post">
+<form id="ajonews" action="" method="post">
   <p>
     <?= $form ?>
     

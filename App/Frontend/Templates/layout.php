@@ -39,5 +39,12 @@
     
       <footer></footer>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+    </script>
+    <script src='/js/tinymce/tinymce.min.js'></script>
+    <script src="/js/editeur.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
