@@ -3,27 +3,35 @@ namespace App\Backend\Modules\Connexion;
 
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
+use \Entity\Connect;
 
 class ConnexionController extends BackController
 {
   public function executeIndex(HTTPRequest $request)
-  {
-    $this->page->addVar('title', 'Connexion');
-    
-    if ($request->postExists('login'))
+
+  { // On ajoute une définition pour le titre.
+    $this->page->addVar('title', 'Connexion au site internet');
+
+    if ($request->postExists('username'))
     {
-      $login = $request->postData('login');
-      $password = $request->postData('password');
-      
-      if ($login == $this->app->config()->get('login') && $password == $this->app->config()->get('pass'))
-      {
+      $username = $request->postData('username'); //var_dump($username);
+      $password = $request->postData('password'); //var_dump($password);
+
+      $manager = $this->managers->getManagerOf('Connexion'); //var_dump($manager);
+
+      $admin = $manager->getAdmin($username);
+
+      if ( $admin && password_verify($password, $admin->password()))
+      { 
         $this->app->user()->setAuthenticated(true);
-        $this->app->httpResponse()->redirect('.');
-      }
-      else
-      {
+
+        $this->app->user()->setAttribute('username', $admin->username());
+
+        $this->app->httpResponse()->redirect('/admin/');
+
+      } else {
         $this->app->user()->setFlash('Le pseudo ou le mot de passe est incorrect.');
       }
-    }
+    } 
   }
 }
