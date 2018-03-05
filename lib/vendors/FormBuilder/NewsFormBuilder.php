@@ -16,8 +16,8 @@ class NewsFormBuilder extends FormBuilder
         'name' => 'auteur',
         'maxLength' => 20,
         'validators' => [
-          new MaxLengthValidator('L\'auteur spécifié est trop long (20 caractères maximum)', 20),
-          new NotNullValidator('Merci de spécifier l\'auteur de la news'),
+          new MaxLengthValidator('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>L\'auteur spécifié est trop long (20 caractères maximum)</div>', 20),
+          new NotNullValidator('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Merci de spécifier l\'auteur de la news</div>'),
         ],
        ]))
        ->add(new StringField([
@@ -25,8 +25,8 @@ class NewsFormBuilder extends FormBuilder
         'name' => 'titre',
         'maxLength' => 100,
         'validators' => [
-          new MaxLengthValidator('Le titre spécifié est trop long (100 caractères maximum)', 100),
-          new NotNullValidator('Merci de spécifier le titre de la news'),
+          new MaxLengthValidator('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Le titre spécifié est trop long (100 caractères maximum)</div>', 100),
+          new NotNullValidator('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Merci de spécifier le titre de la news</div>'),
         ],
        ]))
        ->add(new TextField([
@@ -35,7 +35,7 @@ class NewsFormBuilder extends FormBuilder
         'rows' => 8,
         'cols' => 60,
         'validators' => [
-          new NotNullValidator('Merci de spécifier le contenu de la news'),
+          new NotNullValidator('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Merci de spécifier le contenu de la news</div>'),
         ],
        ]));
   }

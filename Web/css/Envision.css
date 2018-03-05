@@ -1,55 +1,78 @@
 /********************************************
-   AUTHOR:  			Erwin Aligam 
-   WEBSITE:   			http://www.styleshout.com/
-	TEMPLATE NAME:		Envision
-   TEMPLATE CODE: 	S-0013
+   AUTHOR:  			Seb Luca
    VERSION:          1.1
-	LAST MODIFIED     Nov-14-2007 	
+	LAST MODIFIED     fev-22-2018	
  *******************************************/
  
 /********************************************
    HTML ELEMENTS
 ********************************************/ 
 
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../fonts/fontawesome-webfont.eot');
+	src: url('../fonts/FontAwesome.otf') format('truetype'),
+	url('../fonts/fontawesome-webfont.woff') format('woff'),
+	url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+	url('../fonts/fontawesome-webfont?#iefix') format('embedded-opentype'),
+	url('../fonts/fontawesome-webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* Top Elements */
 * { margin: 0; padding: 0; outline: 0 }
 
 body {
-	background: #CCC;
-	font: 70%/1.5em Verdana, Tahoma, arial, sans-serif;
+	font: Verdana, Tahoma, arial, sans-serif;
 	color: #555; 
-	text-align: center;
 }
 
 /* links */
-a, a:visited {
+a {
 	text-decoration: none;
 	color: #2180BC;
 	background: inherit;
 }
 a:hover {
-	color: #88ac0b;
+	color: #006699;
 	background: inherit;
 	text-decoration: underline;
 }
 
+a i.fa-eye-slash {
+
+	color: red;
+}
+
+a .navbar-brand{
+	color: #2180BC
+
+}
+
 /* headers */
 h1, h2, h3 {
-	font-family: 'Trebuchet MS', Tahoma, Sans-serif;	 		
+	font-family: 'Verdana', Tahoma, Sans-serif;	
+	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5); 		
 }
 h1 {
-	font-size: 150%;	
+	font-size: 2em;	
 	font-weight: normal;
 	color: #006699;
 }
+.home h2 {
+	text-align: center;
+	color: #006699;
+	font-size: 2em;	
+}
 h2 {
-	font-size: 140%;
+	font-size: 1em;
 	text-transform: uppercase;
-	color: #88ac0b;
+	color: #006699;
 }
 h3 {
-	font-size: 120%;
-	color: #666666; 
+	font-size: 1.5em;
+	color: #006699; 
 }
 
 /* images */
@@ -94,144 +117,19 @@ blockquote {
   	background: #FAFAFA url(../images/quote.gif) no-repeat 5px 5px;    
 }
 
-/* start - table */
-table {
-	border-collapse: collapse;
-	margin: 10px;	
-}
-th strong {
-	color: #fff;
-}
-th {
-	background: #93BC0C;
-	height: 29px;
-	padding-left: 12px;
-	padding-right: 12px;
-	color: #FFF;
+.center{
 	text-align: center;
-	border-left: 1px solid #B6D59A;
-	border-bottom: solid 2px #FFF;
-}
-form th {
-    text-align: left;
-}
-tr {
-	height: 30px;
-}
-td {
-	padding-left: 5px;
-	padding-right: 5px;
-	border-left: 1px solid #FFF;
-	border-bottom: solid 1px #ffffff;
-    text-align: center;
-}
-form td {
-    text-align: left;
-}
-td.first,th.first {
-	border-left: 0px;
-}
-tr.row-a {
-	background: #F8F8F8;
-}
-tr.row-b {
-	background: #EFEFEF;
-}
-/* end - table */
-
-/* form elements */
-form {
-	margin:10px; padding: 0 5px;
-	border: 1px solid #f2f2f2; 
-	background-color: #FAFAFA; 	
-}
-label {
-	display:block;
-	font-weight:bold;
-	margin:5px 0;
-}
-input {
-	padding:2px;
-	border:1px solid #eee;
-	font: normal 1em Verdana, sans-serif;
-	color:#777;
-}
-textarea {
-	padding:2px;
-	font: normal 1em Verdana, sans-serif;
-	border:1px solid #eee;
-	height:100px;
-	display:block;
-	color:#777;
-}
-input.button { 
-	font: bold 12px Arial, Sans-serif; 
-	height: 24px;
-	margin: 0;
-	padding: 2px 3px; 
-	color: #FFF;
-	background: #8EB50C url(../images/button-bg.jpg) repeat-x 0 0;
-	border: none;
-}
-
-/* search form */
-.searchform {
-	background-color: transparent;
-	border: none;	
-	margin: 0; padding: 5px 0 15px 0;	
-	width: 190px;	
-}
-.searchform p { margin: 0; padding: 0; }
-.searchform input.textbox { 
-	width: 120px;
-	color: #777; 
-	height: 18px;
-	padding: 2px;	
-	border: 1px solid #E5E5E5;
-	vertical-align: top;
-}
-.searchform input.button { 
-	width: 60px;
-	height: 24px;
-	padding: 2px 5px;
-	vertical-align: top;
 }
 
 /********************************************
    LAYOUT
 ********************************************/ 
-#wrap {
-	width: 820px;
-	background: #CCC url(../images/content.jpg) repeat-y center top;
-	margin: 0 auto;
-	text-align: left;
-}
-#content-wrap {
-	clear: both;
-	width: 760px;
-	padding: 0; 
-	margin: 10px auto;
-}
+
 header {
-	width: 820px;
-	position: relative;
-	height: 103px;
-	background: #CCC url(../images/header.jpg) no-repeat center top;
-	padding: 0;	
-	color: #FFF;	
+	
 }
 header h1 a {
-	position: absolute;
-	margin: 0; padding: 0;
-	font: bolder 44px 'Trebuchet MS', Arial, Sans-serif;
-	letter-spacing: -2px;
-	color: #FFF !important;
-	text-transform: none;
-	text-decoration: none;
-	background: transparent;
 	
-	/* change the values of top and left to adjust the position of the logo*/
-	top: 25px; left: 47px;	
 }
 header h1 a:hover {
     text-decoration:none;
@@ -262,39 +160,52 @@ header #header-links a:hover {
 	color: #D4E59F;	
 }
 
-/* Menu */
-nav {
-	clear: both;	
-	margin: 0 auto; padding: 0;
-	background: url(../images/menu.jpg) repeat-x 0 0;	
-	font: bold 12px/37px Verdana, Arial, Tahoma, Sans-serif;
-	height: 37px;
-	width: 780px;	
-}
-nav ul {
-	float: right;
-	list-style: none;
-	margin:0; padding: 0;
-}
-nav ul li {
-	display: inline;
-}
+
 nav ul li a {
-	display: block;
-	float: left;
-	padding: 0 12px;
-	color: #FFF !important;	
-	text-decoration: none !important;
+	font-size: 1.0em;
+	
 }
-nav ul li.last a {
-	padding-right: 20px;	
+
+.navbar-inverse .navbar-nav a.active {
+	font-size: 1.0em;
+	color: #fff; 
+}
+
+.img-fluid{
+
+max-width: 100%;
+height: auto; 
+
+	} 
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-nav a.active {
+	color: #fff;
+    display: block;
+    padding: .5rem 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.navbar-nav {
+    float: right;
+    margin: 0 15px;
+}
+
+nav ul li.last {
+	float: right;
+	margin: 0 0 0 15px;
+	
 }
 nav ul li a:hover {
-	color: #D4E59F !important;	
 }
 nav ul li#current a {	
-	color: #D4E59F !important;
+	
 }
+
 
 /* Main Column */
 #main {
@@ -320,6 +231,14 @@ nav ul li#current a {
 
 #main ul li {
 	list-style-image: url(../images/bullet.gif);
+}
+
+legend {
+    font-size: 11px;
+    padding: 0 10px;
+}
+.glyphicon.glyphicon-comment{
+    top: 4px;
 }
 
 .post-footer {
@@ -385,17 +304,10 @@ nav ul li#current a {
 
 /* Footer */	
 footer {
-	color: #C6DDEE;
-	background: #CCC url(../images/footer.jpg) no-repeat center top;
-	clear: both;
-	width: 820px;
-	height: 65px;
-	text-align: center;	
-	font-size: 92%;	
+	
 }
 footer a { 
-	color: #FFF;
-	text-decoration: none; 
+	
 }
 
 /* alignment classes */
@@ -408,4 +320,158 @@ footer a {
 .clear { clear: both; }
 
 .middle { vertical-align: middle; }
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card img.card-img-top {
+
+	box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+
+}
+
+.card-imgcircle{
+	text-align: center;
+}
+
+.card-bodyindex h2 {
+   text-align: center;
+}
+
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem 0;
+}
+
+.mb-6, .my-6 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 0px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: 10px;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 40px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+
+
+/* annimation */
+
+.material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-com {
+  width: 100%;
+  max-width: 550px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+#contact {
+
+    display: block;
+    top :50%;
+    transform: translateY(50%);
+}
+
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 768px */
+@media screen and (max-width: 768px)
+{ 	
+	#contact {
+    	display: block;
+    	top :10%;
+    	transform: translateY(10%);
+	}
+
+}
+
+
 

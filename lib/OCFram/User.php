@@ -45,6 +45,11 @@ class User
 
   public function setFlash($value)
   {
-    $_SESSION['flash'] = $value;
+    $_SESSION['flash'] = '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.$value.'</div>';
+  }
+
+  public function setFlasherreur($value)
+  {
+    $_SESSION['flash'] = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.$value.'</div>';
   }
 }
