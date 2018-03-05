@@ -24,6 +24,7 @@
           <li><a href="/admin/">Admin</a></li>
           <li><a href="/admin/news-insert.html">Ajouter une news</a></li>
           <li><a href="/admin/comment-gestion.html">Gestion des commentaires</a></li>
+          <li><a href="/admin/deconnexion.html">Bonjour <?= $_SESSION['username'];?> Déconnexion</a></li>
           <?php } ?>
         </ul>
       </nav>

@@ -10,4 +10,5 @@
   <route url="/admin/comment-statutactiver-([0-9]+)\.html" module="News" action="statutactiver" vars="id" />
   <route url="/admin/comment-statutdesactiver-([0-9]+)\.html" module="News" action="statutdesactiver" vars="id" />
   <route url="/admin/comment-clearsignaler-([0-9]+)\.html" module="News" action="clearSignaler" vars="id"/>
+  <route url="/admin/deconnexion\.html" module="Connexion" action="deconnexion" />
 </routes>
