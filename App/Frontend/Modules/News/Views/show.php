@@ -12,6 +12,22 @@
 				} ?>
 			</div>
 			<hr>
+				<ul class="pagination justify-content-center">
+					<?php 
+					foreach ($newsPrecedent as $newsP)
+					{
+					?>
+					<li class="btn btn-secondary previous"><a href="news-<?= $newsP['id'] ?>.html"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> Chapitre précédent</a></li>
+					<?php 
+					}
+					foreach ($newsSuivant as $newsS)
+					{
+					?>
+					<li class="btn btn-secondary next"><a href="news-<?= $newsS['id'] ?>.html">Chapitre suivant <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
+					<?php 
+					} ?>
+				</ul>
+			<hr>
 			<?php
 			if (empty($comments))
 			{
@@ -37,7 +53,7 @@
 			<?php
 			}
 			?>
-			<p class="btn btn-outline-dark btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter un commentaire"><span class="glyphicon glyphicon-comment"></span> <a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+			<p class="btn btn-ajoutercom btn-block" data-toggle="tooltip" data-placement="top" title="Ajouter un commentaire"><span class="glyphicon glyphicon-comment"></span> <a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
 		</div>
 		<aside class="col-md-4 blog-sidebar">
 			<div class="p-3 mb-3 bg-light rounded">

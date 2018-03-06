@@ -354,8 +354,25 @@ body {
 }
 
 .btn-group a{
-    margin-left: 5px;
-     margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.previous, .next{
+  margin-left: 25px;
+  margin-right: 25px;
+
+}
+.previous a, .next a{
+ color: #fff; 
+
+}
+
+.btn-ajoutercom, .btn-ajoutercom:hover, .btn-ajoutercom:focus {
+    color: #333;
+    text-shadow: none;
+    background-color: #fff;
+    border: .05rem solid #006699;
 }
 
 .mb-0, .my-0 {

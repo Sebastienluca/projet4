@@ -95,6 +95,39 @@ class NewsManagerPDO extends NewsManager
     return null;
   }
 
+   public function getPrecedent($id)
+  {
+
+   $requete = $this->dao->prepare('SELECT id FROM news WHERE id < :id ORDER BY id DESC LIMIT 1,1');
+    $requete->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+    $requete->execute();
+
+    $requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\News');
+    
+    $newsPrecedent = $requete->fetchAll();
+  
+    $requete->closeCursor();
+    
+    return $newsPrecedent;
+
+  }
+
+  public function getSuivant($id)
+  {
+   $requete = $this->dao->prepare('SELECT id FROM news WHERE id > :id LIMIT 0,1');
+    $requete->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+    $requete->execute();
+
+    $requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\News');
+    
+    $newsSuivant = $requete->fetchAll();
+    
+    $requete->closeCursor();
+    
+    return $newsSuivant;
+
+  }
+
   protected function modify(News $news)
   {
     $requete = $this->dao->prepare('UPDATE news SET auteur = :auteur, titre = :titre, contenu = :contenu, dateModif = NOW() WHERE id = :id');
