@@ -348,6 +348,20 @@ body {
   top: 20px;
 }
 
+.btn-group, .btn-group-vertical {
+    margin-left: 50px;
+     margin-right: 5px;
+}
+
+.btn-group a{
+    margin-left: 5px;
+     margin-right: 5px;
+}
+
+.mb-0, .my-0 {
+  text-align: center;
+}
+
 /* annimation */
 
 .material-switch > input[type="checkbox"] {

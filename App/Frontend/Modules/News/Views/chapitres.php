@@ -16,7 +16,9 @@
 							<p><?= nl2br($news['contenu']) ?></p>
 							<div class="btn-group">
 								<a href="news-<?= $news['id'] ?>.html"><button type="button" class="btn btn-sm btn-outline-secondary">Lire la suite</button></a>
-								<!-- <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button> -->
+								<?php if ($user->isAuthenticated()) { ?>
+									<a href="/admin/news-update-<?= $news['id'] ?>.html"><button type="button" class="btn btn-sm btn-outline-secondary">Editer</button></a>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
