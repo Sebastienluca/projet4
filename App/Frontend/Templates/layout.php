@@ -23,6 +23,7 @@
 					<div id="navbarCollapse" class="collapse navbar-collapse justify-content-md-end">
 						<ul class="navbar-nav">
 							<li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i> Accueil</a></li>
+							<li class="nav-item"><a class="nav-link" href="/chapitres.html"> Chapitres</a></li>
 						<?php if ($user->isAuthenticated()) { ?>
 							<li class="nav-item"><a class="nav-link" href="/admin/">Gestion des épisodes</a></li>
 							<li class="nav-item"><a class="nav-link" href="/admin/comment-gestion.html">Gestion des commentaires</a></li>

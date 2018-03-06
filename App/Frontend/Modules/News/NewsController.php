@@ -20,7 +20,7 @@ class NewsController extends BackController
 		// On récupère le manager des news.
 		$manager = $this->managers->getManagerOf('News');
 		
-		$listeNews = $manager->getList(0, $nombreNews);
+		$listeNews = $manager->getListIndex(0, $nombreNews);
 		
 		foreach ($listeNews as $news)
 		{
@@ -35,6 +35,33 @@ class NewsController extends BackController
 		
 		// On ajoute la variable $listeNews à la vue.
 		$this->page->addVar('listeNews', $listeNews);
+	}
+
+	public function executeChapitres(HTTPRequest $request)
+	{
+		$nombreNews = $this->app->config()->get('nombre_news');
+		$nombreCaracteres = $this->app->config()->get('nombre_caracteres');
+
+		// On ajoute une définition pour le titre.
+		$this->page->addVar('title', 'Les épisodes Roman - Billet simple pour l\'Alaska');
+
+		// On récupère le manager des news.
+		$manager = $this->managers->getManagerOf('News');
+
+		$listeNews = $manager->getList();
+
+		foreach ($listeNews as $news)
+		{
+			if (strlen($news->contenu()) > $nombreCaracteres)
+			{
+				$debut = substr($news->contenu(), 0, $nombreCaracteres);
+				$debut = substr($debut, 0, strrpos($debut, ' ')) . '...';
+				
+				$news->setContenu($debut);
+			}
+		}
+		// On ajoute la variable $listeNewsChapitres à la vue.
+		$this->page->addVar('listeNewsChapitres', $listeNews);
 	}
 	
 	public function executeShow(HTTPRequest $request)
