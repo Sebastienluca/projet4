@@ -260,56 +260,6 @@ legend {
 	padding-left: 20px; margin: 0 10px 0 5px;
 }
 
-/* Sidebar */	
-#sidebar {
-	float: right;
-	width: 26.5%;
-	padding: 0; margin: 0;	
-	color: #68774A;	
-}	
-#sidebar h3 {
-	margin-top: 10px;
-	padding: 5px 5px; 
-	font: bold 1.4em 'Trebuchet MS', Tahoma, Sans-serif;
-	color: #728D26;	
-}
-#sidebar ul.sidemenu {
-	list-style: none;
-	text-align: left;
-	margin: 7px 4px 8px 0; padding: 0;
-	text-decoration: none;		
-	background: url(../images/dots.jpg) repeat-x left top;
-}
-#sidebar ul.sidemenu li {
-	list-style: none;
-	background: url(../images/dots.jpg) repeat-x left bottom;
-	padding: 4px 0 4px 5px;
-	margin: 0 2px;	
-	color: #68774A;	
-}
-* html body #sidebar ul.sidemenu li {
-	height: 1%;
-}
-#sidebar ul.sidemenu li a {
-	text-decoration: none;	
-	background-image: none;	
-	color: #666666;			
-}
-#sidebar ul.sidemenu li a:hover {	
-	color: #1773BC;	
-}
-#sidebar ul.sidemenu ul { margin: 0 0 0 5px; padding: 0; }
-#sidebar ul.sidemenu ul li { background: none; }
-
-
-/* Footer */	
-footer {
-	
-}
-footer a { 
-	
-}
-
 /* alignment classes */
 .float-left  { float: left; }
 .float-right { float: right; }
@@ -373,9 +323,14 @@ html {
 body {
   margin-bottom: 0px; /* Margin bottom by footer height */
 }
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
 .footer {
   position: absolute;
-  bottom: 0;
+   bottom: 0; 
   margin-top: 10px;
   width: 100%;
   height: 60px; /* Set the fixed height of the footer here */
@@ -391,8 +346,6 @@ body {
   z-index: 10;
   margin-bottom: 160px;
 }
-
-
 
 /* annimation */
 

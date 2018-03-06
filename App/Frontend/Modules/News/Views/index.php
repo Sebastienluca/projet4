@@ -2,7 +2,6 @@
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1" class=""></li>
-		<li data-target="#myCarousel" data-slide-to="2" class=""></li>
 	</ol>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
@@ -54,6 +53,6 @@
 			</div>
 		</div>
 		<?php } ?>
-		<hr class="featurette-divider">
 	</div>
+	<hr class="featurette-divider">
 </div>

@@ -54,8 +54,8 @@
 			<section <?php if(isset($idsection) && !empty($idsection)){ echo 'id="'.$idsection.'"'; }?>>
 				<?php if ($user->hasFlash()) echo '<div class="container"><div class="row"><p style="text-align: center;">', $user->getFlash(), '</p></div></div>'; ?>
 					<?= $content ?>
-				<hr>
 			</section>
+			<hr class="featurette-divider">
 		</main>
 		<!-- FOOTER -->
 		<footer class="footer">
