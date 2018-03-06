@@ -14,30 +14,30 @@
 		<header>
 			<nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark box-shadow">
 				<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#" data-toggle="popover" data-placement="bottom" data-content=" Acteur & écrivain">Jean Forteroche</a>
-					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          				<span class="navbar-toggler-icon"></span>
-        			</button>
-				</div>
-				<div id="navbarCollapse" class="collapse navbar-collapse justify-content-md-end">
-					<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i> Accueil</a></li>
-					<?php if ($user->isAuthenticated()) { ?>
-						<li class="nav-item"><a class="nav-link" href="/admin/">Gestion des épisodes</a></li>
-						<li class="nav-item"><a class="nav-link" href="/admin/comment-gestion.html">Gestion des commentaires</a></li>
-					<?php } ?>
-					<?php if ($user->isAuthenticated()) { ?>
-						<li class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								Bonjour <?= $_SESSION['username'];?><span class="caret"></span></a>
-							<div class="dropdown-menu" aria-labelledby="dropdown03">
-				              <a class="dropdown-item" href="/admin/deconnexion.html">Déconnexion</a>
-				            </div>
-						</li>
-					<?php } ?>
-					</ul>
-				</div>
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#" data-toggle="popover" data-placement="bottom" data-content=" Acteur & écrivain">Jean Forteroche</a>
+						<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</div>
+					<div id="navbarCollapse" class="collapse navbar-collapse justify-content-md-end">
+						<ul class="navbar-nav">
+							<li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i> Accueil</a></li>
+						<?php if ($user->isAuthenticated()) { ?>
+							<li class="nav-item"><a class="nav-link" href="/admin/">Gestion des épisodes</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/comment-gestion.html">Gestion des commentaires</a></li>
+						<?php } ?>
+						<?php if ($user->isAuthenticated()) { ?>
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Bonjour <?= $_SESSION['username'];?><span class="caret"></span></a>
+								<div class="dropdown-menu" aria-labelledby="dropdown03">
+								  <a class="dropdown-item" href="/admin/deconnexion.html">Déconnexion</a>
+								</div>
+							</li>
+						<?php } ?>
+						</ul>
+					</div>
 				</div>
 			</nav>
 		</header>
