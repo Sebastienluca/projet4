@@ -3,15 +3,10 @@ var Design = {
 	init: function(){
 
 		var _this = this;
-
 		window.onload = _this.setActive();	
-
 		_this.tooltipp();
-
 		_this.popover();
-
 		/*_this.modal();*/
-
 	},
 
 	setActive:function() {
