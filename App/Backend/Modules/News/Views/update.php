@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="text-center">
-		<h2>Modifier une news</h2>
+		<h2>Modifier un chapitre</h2>
 		<form id="ajonews" action="" method="post">
 			<p>
 				<?= $form ?>

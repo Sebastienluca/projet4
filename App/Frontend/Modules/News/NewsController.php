@@ -15,7 +15,7 @@ class NewsController extends BackController
 		$nombreCaracteres = $this->app->config()->get('nombre_caracteres');
 		
 		// On ajoute une définition pour le titre.
-		$this->page->addVar('title', 'Liste des '.$nombreNews.' dernières news');
+		$this->page->addVar('title', ' Jean Forteroche | Mes '.$nombreNews.' dernièrs chapitres');
 		
 		// On récupère le manager des news.
 		$manager = $this->managers->getManagerOf('News');
@@ -43,7 +43,7 @@ class NewsController extends BackController
 		$nombreCaracteres = $this->app->config()->get('nombre_caracteres');
 
 		// On ajoute une définition pour le titre.
-		$this->page->addVar('title', 'Les épisodes Roman - Billet simple pour l\'Alaska');
+		$this->page->addVar('title', 'Les Chapitres - Billet simple pour l\'Alaska | Roman');
 
 		// On récupère le manager des news.
 		$manager = $this->managers->getManagerOf('News');
@@ -122,7 +122,7 @@ class NewsController extends BackController
 		{
 			$this->app->user()->setFlash('Le commentaire a bien été ajouté, merci !');
 			
-			$this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
+			$this->app->httpResponse()->redirect('chapitre-'.$request->getData('news').'.html');
 		}
 
 		$this->page->addVar('comment', $comment);
@@ -137,7 +137,7 @@ class NewsController extends BackController
 		$manager->signaler($comment);
 
 		$this->app->user()->setFlash('Le commentaire a bien été signalé, merci !');
-		$this->app->httpResponse()->redirect('news-'. $comment->news() .'.html'); 
+		$this->app->httpResponse()->redirect('chapitre-'. $comment->news() .'.html'); 
 	
 	}
 }

@@ -17,13 +17,13 @@
 					foreach ($newsPrecedent as $newsP)
 					{
 					?>
-					<li class="btn btn-secondary previous"><a href="news-<?= $newsP['id'] ?>.html"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> Chapitre précédent</a></li>
+					<li class="btn btn-secondary previous"><a href="chapitre-<?= $newsP['id'] ?>.html"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> Chapitre précédent</a></li>
 					<?php 
 					}
 					foreach ($newsSuivant as $newsS)
 					{
 					?>
-					<li class="btn btn-secondary next"><a href="news-<?= $newsS['id'] ?>.html">Chapitre suivant <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
+					<li class="btn btn-secondary next"><a href="chapitre-<?= $newsS['id'] ?>.html">Chapitre suivant <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
 					<?php 
 					} ?>
 				</ul>
@@ -41,13 +41,14 @@
 			<fieldset>
 				<legend>
 					Posté par <strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['date']->format('d/m/Y à H\hi') ?> --
-					<a href="comment-signaler-<?= $comment['id'] ?>.html" data-toggle="tooltip" data-placement="top" title="Aidez-moi a surveiller les commentaires">Signaler</a>
+					<a class="confirmation" href="comment-signaler-<?= $comment['id'] ?>.html" data-toggle="tooltip" data-placement="top" title="Aidez-moi a surveiller les commentaires">Signaler</a>
 					<?php if ($user->isAuthenticated()) { ?> | 
-						<a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier </a> |
-						<a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer </a>
+						<a href="admin/comment-update-<?= $comment['id'] ?>.html"><i class="fa fa-edit"></i></a> |
+						<a class="confirmation" href="admin/comment-delete-<?= $comment['id'] ?>.html"><i class="fa fa-trash"></i></a>
 					<?php } ?>
 				</legend>
 				<p><?= nl2br(htmlspecialchars($comment['contenu'])) ?></p>
+				<hr>
 			</fieldset>
 			
 			<?php

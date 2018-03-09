@@ -144,25 +144,13 @@ class CommentsManagerPDO extends CommentsManager
 		return $listeCommentsSignaler;
 	}
 
-	public function getListAutre($debut = -1, $limite = -1)
+	public function getListAutre()
 	{
-		$sql = 'SELECT id, auteur, contenu, signaler, statut, date FROM comments WHERE id ORDER BY id DESC';
-		
-		if ($debut != -1 || $limite != -1)
-		{
-			$sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
-		}
-		
+		$sql = 'SELECT comments.id, comments.news, news.titre AS titre_news, comments.auteur, comments.contenu, comments.signaler, comments.statut, comments.date FROM comments, news WHERE comments.news = news.id ORDER BY id DESC';
+
 		$requete = $this->dao->query($sql);
-		$requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
 		
 		$listeCommentsAutre = $requete->fetchAll();
-		
-		foreach ($listeCommentsAutre as $comments)
-		{
-			$comments->setDate(new \DateTime($comments->date()));
-			
-		}
 		
 		$requete->closeCursor();
 		

@@ -18,7 +18,7 @@ class NewsController extends BackController
     $this->managers->getManagerOf('News')->delete($newsId);
     $this->managers->getManagerOf('Comments')->deleteFromNews($newsId);
 
-    $this->app->user()->setFlash('La news a bien été supprimée !');
+    $this->app->user()->setFlash('Le chapitre a bien été supprimée !');
 
     $this->app->httpResponse()->redirect('.');
   }
@@ -29,7 +29,7 @@ class NewsController extends BackController
     
     $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
     
-    $this->app->httpResponse()->redirect('.');
+    $this->app->httpResponse()->redirect('/admin/comment-gestion.html');
   }
 
   public function executegcommets(HTTPRequest $request)
@@ -41,14 +41,13 @@ class NewsController extends BackController
     $this->page->addVar('listeCommentsAutre', $manager->getListAutre());
     $this->page->addVar('nombreComments', $manager->countComments());
 
-      $this->page->addVar('listeCommentsSignaler', $manager->getList());
+    $this->page->addVar('listeCommentsSignaler', $manager->getList());
     $this->page->addVar('nombreCommentsSignaler', $manager->countSignaler());
- 
   }
 
   public function executeIndex(HTTPRequest $request)
   {
-    $this->page->addVar('title', 'Gestion des news');
+    $this->page->addVar('title', 'Gestion des Chapitres');
 
     $manager = $this->managers->getManagerOf('News');
 
@@ -63,7 +62,7 @@ class NewsController extends BackController
     $comment = $manager->get($request->getData('id'));
     $manager->statutActiver($comment);
 
-    $this->app->user()->setFlash('Le commentaire a bien été Activé !');
+    $this->app->user()->setFlash('Le commentaire a bien été activé !');
     $this->app->httpResponse()->redirect('/admin/comment-gestion.html'); 
   }
 
@@ -91,14 +90,14 @@ class NewsController extends BackController
   {
     $this->processForm($request);
 
-    $this->page->addVar('title', 'Ajout d\'une news');
+    $this->page->addVar('title', 'Ajout d\'un chapitre');
   }
 
   public function executeUpdate(HTTPRequest $request)
   {
     $this->processForm($request);
 
-    $this->page->addVar('title', 'Modification d\'une news');
+    $this->page->addVar('title', 'Modification d\'un chapitre');
   }
 
   public function executeUpdateComment(HTTPRequest $request)
@@ -129,7 +128,7 @@ class NewsController extends BackController
     {
       $this->app->user()->setFlash('Le commentaire a bien été modifié');
 
-      $this->app->httpResponse()->redirect('/admin/');
+      $this->app->httpResponse()->redirect('/admin/comment-gestion.html');
     }
 
     $this->page->addVar('form', $form->createView());
@@ -172,7 +171,7 @@ class NewsController extends BackController
 
     if ($formHandler->process())
     {
-      $this->app->user()->setFlash($news->isNew() ? 'L\'episode a bien été ajoutée !' : 'L\'episode a bien été modifiée !');
+      $this->app->user()->setFlash($news->isNew() ? 'Le chapitre a bien été ajoutée !' : 'Le chapitre a bien été modifiée !');
       
       $this->app->httpResponse()->redirect('/admin/');
     }

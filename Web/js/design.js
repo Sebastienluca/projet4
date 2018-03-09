@@ -3,13 +3,15 @@ var Design = {
 	init: function(){
 
 		var _this = this;
-		window.onload = _this.setActive();	
+		window.onload = _this.setMenuActive();	
 		_this.tooltipp();
 		_this.popover();
+
 		/*_this.modal();*/
+		_this.alertSuppression();
 	},
 
-	setActive:function() {
+	setMenuActive:function() {
 		aObj = document.getElementById('navbar').getElementsByTagName('a');
 		 var found = false;
 		for(var i=aObj.length-1; i>=1 && !found; i--) {
@@ -28,6 +30,18 @@ var Design = {
 
 	popover:function() {
 		$('[data-toggle="popover"]').popover();
+	},
+
+	alertSuppression:function() {
+
+		 var elems = document.getElementsByClassName('confirmation');
+	    var confirmIt = function (e) {
+	        if (!confirm('Êtes-vous sûr ?')) e.preventDefault();
+	    };
+	    for (var i = 0, l = elems.length; i < l; i++) {
+	        elems[i].addEventListener('click', confirmIt, false);
+	    }
+		
 	},
 
 	/*modal:function() {

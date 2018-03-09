@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="text-center">
-		<h2>Ajouter une news</h2>
+		<h2>Ajouter un nouveau chapitre</h2>
 	</div>
 	<form id="ajonews" action="" method="post">
 	  <p>

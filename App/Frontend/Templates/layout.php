@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<title>
-			<?= isset($title) ? $title : 'Mon super site' ?>
+			<?= isset($title) ? $title : 'Jean Forteroche | Acteur & écrivain' ?>
 		</title>
 		<meta charset="utf-8" />
-		 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/css/Envision.css" type="text/css" />
@@ -25,7 +25,7 @@
 							<li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i> Accueil</a></li>
 							<li class="nav-item"><a class="nav-link" href="/chapitres.html"> Chapitres</a></li>
 						<?php if ($user->isAuthenticated()) { ?>
-							<li class="nav-item"><a class="nav-link" href="/admin/">Gestion des épisodes</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/">Gestion des chapitres</a></li>
 							<li class="nav-item"><a class="nav-link" href="/admin/comment-gestion.html">Gestion des commentaires</a></li>
 						<?php } ?>
 						<?php if ($user->isAuthenticated()) { ?>
@@ -52,9 +52,13 @@
 		$idsection = preg_replace($reg2, '$1', $urlid);
 		?>
 		<main role="main">
+			<nav class="breadcrumb">
+				<div class="container">
+				</div>
+			</nav>
 			<section <?php if(isset($idsection) && !empty($idsection)){ echo 'id="'.$idsection.'"'; }?>>
-				<?php if ($user->hasFlash()) echo '<div class="container"><div class="row"><p style="text-align: center;">', $user->getFlash(), '</p></div></div>'; ?>
-					<?= $content ?>
+				<?php if ($user->hasFlash()) echo '<div class="container">', $user->getFlash(), '</div>'; ?>
+				<?= $content ?>
 			</section>
 			<hr class="featurette-divider">
 		</main>

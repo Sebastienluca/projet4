@@ -44,10 +44,10 @@
 		?>
 		<div class="col-lg-4">
 			<div class="card-bodyindex">
-				<h3 class="card-title"><a href="news-<?= $news['id'] ?>.html"><?= $news['titre'] ?></a></h3>
+				<h3 class="card-title"><a href="chapitre-<?= $news['id'] ?>.html"><?= $news['titre'] ?></a></h3>
 				<p><?= nl2br($news['contenu']) ?></p>
 				<div class="btn-group">
-					<a href="news-<?= $news['id'] ?>.html"><button type="button" class="btn btn-sm btn-outline-secondary">Lire la suite</button></a>
+					<a href="chapitre-<?= $news['id'] ?>.html"><button type="button" class="btn btn-sm btn-outline-secondary">Lire la suite</button></a>
 					<!-- <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button> -->
 				</div>
 			</div>

@@ -121,6 +121,10 @@ blockquote {
 	text-align: center;
 }
 
+.fa-trash{ 
+  color: #f90000;
+}
+
 /********************************************
    LAYOUT
 ********************************************/ 
@@ -160,10 +164,13 @@ header #header-links a:hover {
 	color: #D4E59F;	
 }
 
-
 nav ul li a {
 	font-size: 1.0em;
 	
+}
+
+.dropdown, .dropup {
+    margin-left: 30px;
 }
 
 .navbar-inverse .navbar-nav a.active {

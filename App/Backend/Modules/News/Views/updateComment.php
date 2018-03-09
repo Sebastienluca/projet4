@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+	<div class="text-center">
 		<h2>Modifier un commentaire</h2>
 		<form action="" method="post">
 			<p>
