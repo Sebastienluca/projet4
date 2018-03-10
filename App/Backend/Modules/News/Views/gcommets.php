@@ -5,7 +5,7 @@
 	<h2>Commentaires</h2>
 	<p style="text-align: center">Il y a actuellement <?= $nombreComments ?> commentaire(s) Dont <?= $nombreCommentsSignaler ?> commentaire(s) signalé(s). En voici la liste :</p>
 	<table class="table table-striped">
-		<tr><th>Auteur</th><th>Commentaire</th><th>Chapitres</th><th>Date</th><th>Action</th><th>Status</th></tr>
+		<tr><th>Auteur</th><th>Commentaire</th><th>Chapitres</th><th>Date</th><th>Action</th><th>Signalement</th><th>Status</th></tr>
 	<?php
 	foreach ($listeCommentsAutre as $comment)
 	{
@@ -22,6 +22,7 @@
 			<a href="comment-update-'.$comment['id'].'.html"><i class="fa fa-edit"></i></a>
 			<a class="confirmation" href="comment-delete-'.$comment['id'].'.html"><i class="fa fa-trash"></i></a>
 			</td>
+			<td><a href="comment-clearsignaler-'.$comment['id'].'.html">Désignaler</a></td>
 		<td>';
 			if ($comment['statut'] == 0)
 			{
